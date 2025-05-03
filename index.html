@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triangle Area Measurement</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#00796b"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      padding: 20px;
+      color: #333;
+    }
+    h2 {
+      text-align: center;
+      color: #00796b;
+    }
+    .canvas-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    canvas {
+      border: 2px solid #00796b;
+      background-color: #fff;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 100%;
+    }
+    .canvas-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .canvas-buttons button {
+      padding: 8px 16px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .canvas-buttons button:hover {
+      background-color: #004d40;
+    }
+    #controls {
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fafafa;
+      border-radius: 10px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    label, select, input {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    select, input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .length-input {
+      margin: 10px 0;
+    }
+    button.calculate-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #00796b;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    button.calculate-btn:hover {
+      background-color: #004d40;
+    }
+    #result {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: #004d40;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      canvas {
+        width: 100% !important;
+        height: auto !important;
+      }
+      .canvas-buttons button, .calculate-btn {
+        font-size: 0.95rem;
+        padding: 8px;
+        flex: 1 0 30%;
+      }
+      .canvas-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>Triangle Area Calculator</h2>
+  <div class="canvas-wrapper">
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <div class="canvas-buttons">
+      <button onclick="undo()">Undo</button>
+      <button onclick="redo()">Redo</button>
+      <button onclick="resetCanvas()">Reset</button>
+    </div>
+  </div>
+
+  <div id="controls">
+    <label for="unit">Unit of Measurement: </label>
+    <select id="unit">
+      <option value="m">Meters</option>
+      <option value="ft">Feet</option>
+      <option value="gl">Gunter Links</option>
+      <option value="ml">Metric Links</option>
+    </select>
+    <div class="length-input">
+      <label>0-1 Length: <input id="length01" type="number" step="any"> </label>
+    </div>
+    <div class="length-input">
+      <label>1-2 Length: <input id="length12" type="number" step="any"> </label>
+    </div>
+    <div class="length-input">
+      <label>2-0 Length: <input id="length20" type="number" step="any"> </label>
+    </div>
+    <button class="calculate-btn" onclick="calculateArea()">Calculate Area</button>
+    <p id="result"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
