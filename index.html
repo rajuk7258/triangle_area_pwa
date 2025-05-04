@@ -17,32 +17,36 @@
       text-align: center;
       color: #00796b;
     }
-    .canvas-wrapper {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
-    canvas {
-      border: 2px solid #00796b;
-      background-color: #fff;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      max-width: 100%;
-    }
-    .canvas-buttons {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .canvas-buttons button {
-      padding: 8px 16px;
-      background-color: #00796b;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+    
+.canvas-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+canvas {
+  border: 2px solid #00796b;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 60%;
+}
+
+.canvas-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.canvas-buttons button {
+  padding: 8px 16px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
     .canvas-buttons button:hover {
       background-color: #004d40;
     }
