@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Triangle Area Measurement</title>
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#00796b"/>
   <style>
     body {
@@ -13,43 +13,46 @@
       padding: 20px;
       color: #333;
     }
+
     h2 {
       text-align: center;
       color: #00796b;
     }
-    
-.canvas-wrapper {
- display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-canvas {
-  border: 2px solid #00796b;
-  background-color: #fff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 100%;
-}
+    .canvas-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.canvas-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-  flex-wrap: wrap;
-  justify-content: left;
-}
+    canvas {
+      border: 2px solid #00796b;
+      background-color: #fff;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 100%;
+    }
 
-.canvas-buttons button {
-  padding: 8px 16px;
-  background-color: #00796b;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+    .canvas-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .canvas-buttons button {
+      padding: 8px 16px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
     .canvas-buttons button:hover {
       background-color: #004d40;
     }
+
     #controls {
       max-width: 500px;
       margin: 20px auto;
@@ -58,20 +61,24 @@ canvas {
       border-radius: 10px;
       box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     }
+
     label, select, input {
       display: block;
       width: 100%;
       margin-bottom: 10px;
       font-size: 1rem;
     }
+
     select, input {
       padding: 8px;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+
     .length-input {
       margin: 10px 0;
     }
+
     button.calculate-btn {
       width: 100%;
       padding: 10px;
@@ -83,30 +90,44 @@ canvas {
       cursor: pointer;
       margin-bottom: 10px;
     }
+
     button.calculate-btn:hover {
       background-color: #004d40;
     }
+
     #result {
       margin-top: 15px;
       text-align: center;
       font-weight: bold;
       color: #004d40;
     }
+
+    #acres {
+      text-align: center;
+      font-size: 1rem;
+      color: #6e3707;
+      font-weight: bold
+      margin-top: 5px;
+    }
+
     @media (max-width: 600px) {
       body {
         padding: 10px;
       }
+
       canvas {
         width: 100% !important;
         height: auto !important;
       }
+
       .canvas-buttons button, .calculate-btn {
         font-size: 0.95rem;
         padding: 8px;
         flex: 1 0 30%;
       }
+
       .canvas-buttons {
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
       }
     }
@@ -131,6 +152,7 @@ canvas {
       <option value="gl">Gunter Links</option>
       <option value="ml">Metric Links</option>
     </select>
+
     <div class="length-input">
       <label>0-1 Length: <input id="length01" type="number" step="any"> </label>
     </div>
@@ -140,8 +162,11 @@ canvas {
     <div class="length-input">
       <label>2-0 Length: <input id="length20" type="number" step="any"> </label>
     </div>
+
     <button class="calculate-btn" onclick="calculateArea()">Calculate Area</button>
+
     <p id="result"></p>
+    <p id="acres"></p>
   </div>
 
   <script src="script.js"></script>
