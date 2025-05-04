@@ -131,11 +131,3 @@ if ('serviceWorker' in navigator) {
       drawLengthLabel(points[1], points[2], b, unit);
       drawLengthLabel(points[2], points[0], c, unit);
     }
-    // Scroll input into view on focus
-    document.querySelectorAll('input').forEach(input => {
-      input.addEventListener('focus', () => {
-        setTimeout(() => {
-          input.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 300);
-      });
-    });
