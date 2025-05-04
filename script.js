@@ -74,6 +74,7 @@ if ('serviceWorker' in navigator) {
       redoStack = [];
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       document.getElementById("result").textContent = "";
+      document.getElementById("acres").textContent = "";
       document.getElementById("length01").value = "";
       document.getElementById("length12").value = "";
       document.getElementById("length20").value = "";
@@ -105,25 +106,31 @@ if ('serviceWorker' in navigator) {
 
       const s = (a + b + c) / 2;
       const area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
-      let resultText = `Area: ${area.toFixed(2)} square ${unit}`;
+      document.getElementById("result").textContent = `Area: ${area.toFixed(2)} square ${unit}`;
 
-      // Convert to square meters first
-      let sqm = area;
-      if (unit === 'ft') sqm *= 0.092903;
-      if (unit === 'gl') sqm *= 0.0025;
-      if (unit === 'ml') sqm *= 0.25;
+      let acres = 0;
+      switch (unit) {
+        case 'm':
+          acres = area / 4046.8564224;
+          break;
+        case 'ft':
+          acres = area / 43560;
+          break;
+        case 'gl':
+          acres = area / 100000; // ~1 acre = 100,000 square Gunter links
+          break;
+        case 'ml':
+          acres = area / 100000; // similar for Metric links if needed
+          break;
+      }
 
-      const acres = sqm / 4046.86;
-      resultText += ` (${acres.toFixed(4)} acres)`;
-
-      document.getElementById("result").textContent = resultText;
+      document.getElementById("acres").textContent = `Approx. ${acres.toFixed(2)} acres`;
 
       redraw();
       drawLengthLabel(points[0], points[1], a, unit);
       drawLengthLabel(points[1], points[2], b, unit);
       drawLengthLabel(points[2], points[0], c, unit);
     }
-
     // Scroll input into view on focus
     document.querySelectorAll('input').forEach(input => {
       input.addEventListener('focus', () => {
